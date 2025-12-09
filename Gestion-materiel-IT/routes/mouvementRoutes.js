@@ -1,0 +1,9 @@
+const express = require('express');
+const router = express.Router();
+
+// test
+router.get('/', (req, res) => {
+    res.json({ message: "Route mouvements OK" });
+});
+
+module.exports = router;

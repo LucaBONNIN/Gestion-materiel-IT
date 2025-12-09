@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Gestion-materiel-IT/Gestion-materiel-IT.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>

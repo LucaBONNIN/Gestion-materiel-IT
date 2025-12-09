@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	h1 Ajouter un nouveau PC au stock
+
+	form(action="/api/produits" method="POST")
+		label(for="nom") Nom du PC :
+		input(type="text" name="nom" id="nom")
+
+		label(for="reference") Référence du PC :
+		input(type="text" name="reference" id="reference")
+
+		label(for="quantite_actuelle") Quantité actuelle :
+		input(type="text" name="quantite_actuelle" id="quantite_actuelle")
+
+		label(for="quantite_min") Quantité minimum :
+		input(type="text" name="quantite_min" id="quantite_min")
+
+		label(for="emplacement") Emplacement :
+		input(type="text" name="emplacement" id="emplacement")
+
+		label(for="id_categorie") Catégorie :
+		input(type="text" name="id_categorie" id="id_categorie")
+
+		button(type="submit") Ajouter au stock
