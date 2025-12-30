@@ -10,6 +10,7 @@ const db = require('./config/db'); // connexion MySQL
 const produitRoutes = require('./routes/produitRoutes');
 const mouvementRoutes = require('./routes/mouvementRoutes');
 const authRoutes = require('./routes/authRoutes');
+const utilisateurRoutes = require('./routes/utilisateurRoutes');
 
 var app = express();
 
@@ -46,9 +47,11 @@ app.get('/test-bdd', (req, res) => {
 // =======================
 // Routes API
 // =======================
+
 app.use('/api/produits', produitRoutes);
 app.use('/api/mouvements', mouvementRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/utilisateurs', utilisateurRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

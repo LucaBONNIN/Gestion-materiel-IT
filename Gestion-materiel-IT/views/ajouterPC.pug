@@ -3,7 +3,7 @@ extends layout
 block content
 	h1 Ajouter un nouveau PC au stock
 
-	form(action="/api/produits" method="POST")
+	form(action="/api/produits/ajouter" method="POST")
 		label(for="nom") Nom du PC :
 		input(type="text" name="nom" id="nom")
 
