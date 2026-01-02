@@ -8,27 +8,27 @@ exports.createUser = (req, res) => {
     const data = req.body;
 
     if (!data.nom || !data.prenom || !data.email || !data.role) {
-        return res.status(400).json({ message: "Champs obligatoires manquants" });
+        return res.render('ajouterUtilisateur', { errorMessage: "Champs obligatoires manquants", formData: data })
     }
     if (!isValidEmail(data.email)) {
-        return res.status(400).json({ message: "Adresse email invalide" });
+        return res.render('ajouterUtilisateur', { errorMessage: "Email invalide", formData: data })
     }
     if (data.role !== "admin" && data.role !== "user") {
-        return res.status(400).json({ message: "Veuillez entrer un role valide (admin/user)" });
+        return res.render('ajouterUtilisateur', { errorMessage: "Veuillez entrer un role autorisé (user/admin)", formData: data })
     }
 
-    utilisateurModel.findByEmail(data.email, (err, existingMailUser) => {
+    findByEmail(data.email, (err, existingMailUser) => {
         if (err) {
-            return res.status(500).json({ message: "Erreur SQL" });
+            return res.render('ajouterUtilisateur', { errorMessage: "Erreur serveur / SQL", formData: data })
         }
         if (existingMailUser) {
-            return res.status(400).json({ message: "Email déjà existant" });
+            return res.render('ajouterUtilisateur', { errorMessage: "Email déjà utilisé", formData: data })
         }
         utilisateurModel.createUser(data, (err, newUser) => {
             if (err) {
-                return res.status(500).send("Erreur SQL");
+                return res.render('ajouterUtilisateur', { errorMessage: "Erreur SQL", formData: data });
             }
-            return res.redirect('/utilisateurs/ajouter?success=1');
+            return res.render('utilisateurCree', { utilisateur: data});
         });
     });
 

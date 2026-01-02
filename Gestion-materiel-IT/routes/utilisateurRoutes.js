@@ -9,12 +9,14 @@ router.get('/', (req, res) => {
 
 // 1) Affiche la page 
 router.get('/ajouter', (req, res) => {
-    res.render('ajouterUtilisateur');
+    if (req.query.success === '1') {
+        res.render('utilisateurs/ajouter', { successMessage: 'Utilisateur ajouté avec succès !' });
+    }
 });
 
 // 2) Traite le formulaire
 router.post('/ajouter', (req, res) => {
-    return res.redirect('/utilisateurs/ajouter');
+    return res.redirect('utilisateurController.createUserWeb');
 });
 
 module.exports = router;
