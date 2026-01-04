@@ -6,6 +6,7 @@ const { findByEmail } = utilisateurModel;
 
 exports.createUser = (req, res) => {
     const data = req.body;
+    console.log(data);
 
     if (!data.nom || !data.prenom || !data.email || !data.role) {
         return res.render('ajouterUtilisateur', { errorMessage: "Champs obligatoires manquants", formData: data })

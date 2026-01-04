@@ -10,16 +10,16 @@ block content
 
 	form(method="POST" action="/utilisateurs/ajouter")
 		label(for="nom") Nom de l'utilisateur :
-		input(type="text" name="nom" id="nom" value=formData?.nom)
+		input(type="text" name="nom" id="nom")
 
 		label(for="prenom") Prenom de l'utilisateur :
-		input(type="text" name="prenom" id="prenom" value=formData?.prenom)
+		input(type="text" name="prenom" id="prenom" )
 
 		label(for="email") Email de l'utilisateur :
-		input(type="mail" name="eamil" id="email" value=formData?.email)
+		input(type="mail" name="eamil" id="email")
 
 		label(for="role") Role de l'utilisateur (user/admin) :
-		input(type="text" name="role" id="role" value=formData?.role)
+		input(type="text" name="role" id="role")
 
 		button(type="submit") Créer l'utilisateur
 
