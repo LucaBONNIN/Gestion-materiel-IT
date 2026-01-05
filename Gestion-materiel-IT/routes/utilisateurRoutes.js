@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const utilisateurController = require('../controllers/utilisateurController');
 
+
 // route de test
 router.get('/', (req, res) => {
     res.json({ message: 'Route utilisateurs OK' });
